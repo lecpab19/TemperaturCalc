@@ -4,19 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvHeadLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tmperatur Rechner"
         android:textAlignment="center"
-        android:textSize="35sp"/>
+        android:textSize="30sp"
+        android:text="Temperatur Rechner"
+        />
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        
-    </EditText>
+
+        <TextView
+            android:id="@+id/tvInValue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            />
+
+
+        <TextView
+            android:id="@+id/tvOutvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
 
 </LinearLayout>
