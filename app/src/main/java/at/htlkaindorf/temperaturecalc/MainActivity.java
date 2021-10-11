@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private Button calc;
-    private Editable CInput;
+    private EditText CInput;
     private TextView FOutput;
     private TextView KOutput;
     private double resultK;
@@ -22,7 +24,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //CInput = (Editable) findViewById(R.id.tvInValue);
+        CInput = (EditText) findViewById(R.id.edInput);
+        calc = (Button) findViewById(R.id.btCalc);
+        FOutput = (TextView) findViewById(R.id.tvOutValTempF);
+        KOutput = (TextView) findViewById(R.id.tvOutValTempK);
+
+        calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double input = getInput();
+                CToF(input);
+                CToK(input);
+                update();
+            }
+        });
     }
 
     private void CToK(double input){
@@ -31,6 +46,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void CToF(double input){
         resultF = input * (9/5) + CelsiusToFahrenheitCourse;
+    }
+
+    private double getInput(){
+        double res = 0.0;
+        try {
+            String help = CInput.getText().toString();
+            res = Double.parseDouble(help);
+        } catch (NumberFormatException ex){
+            ex.printStackTrace();
+        }
+
+        return res;
     }
 
     private void update(){
