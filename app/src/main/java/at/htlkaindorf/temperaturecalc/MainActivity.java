@@ -32,10 +32,14 @@ public class MainActivity extends AppCompatActivity {
         calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double input = getInput();
-                CToF(input);
-                CToK(input);
-                update();
+                try {
+                    double input = getInput();
+                    CToF(input);
+                    CToK(input);
+                    update();
+                } catch (NumberFormatException ex){
+                    ex.printStackTrace();
+                }
             }
         });
     }
@@ -45,17 +49,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void CToF(double input){
-        resultF = input * (9/5) + CelsiusToFahrenheitCourse;
+        resultF = input * 1.8 + CelsiusToFahrenheitCourse;
     }
 
-    private double getInput(){
+    private double getInput() throws NumberFormatException{
         double res = 0.0;
-        try {
-            String help = CInput.getText().toString();
-            res = Double.parseDouble(help);
-        } catch (NumberFormatException ex){
-            ex.printStackTrace();
-        }
+        String help = CInput.getText().toString();
+        res = Double.parseDouble(help);
 
         return res;
     }
