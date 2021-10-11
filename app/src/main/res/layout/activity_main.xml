@@ -38,6 +38,7 @@
             android:layout_height="match_parent"
             android:textAlignment="center"
             android:textSize="20sp"
+            android:text="Kelvin"
             android:layout_weight="1"
             />
 
@@ -48,6 +49,7 @@
             android:layout_height="match_parent"
             android:textAlignment="center"
             android:textSize="20sp"
+            android:text="Fahrenheit"
             android:layout_weight="1"
             />
     </LinearLayout>
